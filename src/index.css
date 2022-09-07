@@ -1,0 +1,52 @@
+html {
+    background-color: white;
+    font-size: 14px;
+}
+
+main {
+    margin: 30px auto;
+    padding: 0 2rem;
+    width: 40vw;
+    height: 90vh;
+    border: 3px solid black;
+    border-radius: 50px;
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+h1 {
+    font-size: 4rem;
+    color: darkblue;
+    text-align: center;
+}
+
+p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.dice--section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px 20px;
+    margin: 20px;
+}
+
+.die {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: bisque;
+}
+
+button {
+    margin: 0 auto;
+    font-size: 1.2rem;
+    background-color: bisque;
+    border-radius: 15px;
+    box-shadow: 1px 1px 4px grey;
+    width: 25%;
+    padding: 1rem;
+
+}
