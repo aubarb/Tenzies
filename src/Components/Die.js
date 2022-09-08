@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function Die() {
+export default function Die({ value }) {
+
     return (
         <div className="die">
-            <p>6</p>
+            <p>{value}</p>
         </div>
     )
 }
