@@ -3,21 +3,11 @@ The array is created in Appjs
 The array is iterated over in Dice.js to render 10 <Die /> components with object values as parameters
 Individual die is rendered in Die.js. Only there can Click be registered (???)
 
-5:
-{
-id: "HQrlb--Y2Cr6gOCEXZLZf",
-isHeld: false,
-value: 1
-}
-
-
 Improvements
 - Put real dots on the dice (CSS)
 - Track the Time it took to win
-- 
 - Better CSS overall
     - Animation when winning
     - Better button display
 
 
-- Save best Time to local storage : 

@@ -7,6 +7,7 @@ function App() {
   const [allDice, setAllDice] = useState([])
   const [victory, setVictory] = useState(false)
   const [score, setScore] = useState(0)
+  const [bestScore, setBestScore] = useState(JSON.parse(localStorage.getItem('bestScore')) || '')
 
   //Generate 1 die with random number, id and isHeld = false
   const throwDie = () => {
@@ -26,13 +27,27 @@ function App() {
     return setAllDice(array)
   }, []);
 
-  //Check if all Dice value are the same and set Victory to true it is the case
+  //Check if all Dice value are the same and set Victory to true if it is the case
   useEffect(() => {
-    setVictory(allDice.every(die => die.value === allDice[0].value));
+    setVictory(allDice.length > 0 && allDice.every(die => die.value === allDice[0].value));
     if (victory) {
       console.log("Victory!")
     }
   })
+
+  //When Victory checks if Rolls < Best score and sets new BestScore
+  useEffect(() => {
+    if (victory === true) {
+      if (!bestScore || bestScore > score) {
+        setBestScore(score)
+      }
+    }
+  }, [victory])
+
+  // Save bestScore to local storage
+  useEffect(() => {
+    localStorage.setItem('bestScore', JSON.stringify(bestScore));
+  }, [bestScore])
   
   // Toggle the isHeld of the Die that is clicked
   function handleClick(id, isHeld) {
@@ -74,6 +89,7 @@ function App() {
         <h1>Tenzies!</h1>
         <p>Simple: try to end with all dice showing the same number by holding any you want and relaunching. Try to do this with the least attempts possible. Good luck!</p>
         <h3>Rolls : {score}</h3>
+        <h3>Best Score : {bestScore}</h3>
         <div className="dice--section">
             {DiceEl}
         </div>
