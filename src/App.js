@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { nanoid } from 'nanoid';
 import './index.css';
 import Die from './Components/Die';
+import Confetti from 'react-confetti';
 
 function App() {
   const [allDice, setAllDice] = useState([])
@@ -85,11 +86,14 @@ function App() {
 
   return (
     <div className="App">
+      {victory && <Confetti />}
       <main>
-        <h1>Tenzies!</h1>
+        <h1>Tenzies</h1>
         <p>Simple: try to end with all dice showing the same number by holding any you want and relaunching. Try to do this with the least attempts possible. Good luck!</p>
-        <h3>Rolls : {score}</h3>
-        <h3>Best Score : {bestScore}</h3>
+        <div className='h3'>
+          <h3>Rolls : {score}</h3>
+          <h3>Best Score : {bestScore}</h3>
+        </div>
         <div className="dice--section">
             {DiceEl}
         </div>
