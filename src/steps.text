@@ -1,7 +1,7 @@
 I have an Array of 10 objects : {value: number, isHeld: false}
 The array is created in Appjs
 The array is iterated over in Dice.js to render 10 <Die /> components with object values as parameters
-Individual die is rendered in Die.js. Only there can Click be registered (???)
+Individual die is rendered in Die.js.
 
 Improvements
 - Put real dots on the dice (CSS)

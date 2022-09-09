@@ -34,19 +34,23 @@ p {
     margin: 20px;
 }
 
-.die {
-    border: 1px solid black;
+.die_held {
+    align-items: center;
+    max-height: 93%;
+    max-width: 93%;
+    border: 3px solid black;
     border-radius: 10px;
-    background-color: bisque;
     cursor: pointer;
-    box-shadow: 1px 1px 1px black;
 }
 
-.die_held {
-    border: 1px solid rgb(0, 0, 0);
-    color: white;
+.die {
+    align-items: center;
+    max-height: 100%;
+    max-width: 100%;
+    border: 1px solid #783627;
     border-radius: 10px;
-    background-color: rgb(169, 132, 87);
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #783627;
 }
 
 button {
@@ -59,3 +63,4 @@ button {
     padding: 1rem;
     cursor: pointer;
 }
+
