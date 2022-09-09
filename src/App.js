@@ -5,43 +5,79 @@ import Die from './Components/Die';
 
 function App() {
   const [allDice, setAllDice] = useState([])
+  const [victory, setVictory] = useState(false)
+  const [score, setScore] = useState(0)
 
+  //Generate 1 die with random number, id and isHeld = false
+  const throwDie = () => {
+    return {
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+      id: nanoid()
+    }
+  }
+
+  //Generate an array of 10 new dice 
   useEffect(() => {
     let array = [];
     for (let i = 0; i < 10; i++) {
-      array.push({
-        value: Math.ceil(Math.random() * 6),
-        isHeld: false,
-        id: nanoid()
-      });
+      array.push(throwDie());
     }
     return setAllDice(array)
   }, []);
 
-  function handleClick() {
-    console.log("clicked")
+  //Check if all Dice value are the same and set Victory to true it is the case
+  useEffect(() => {
+    setVictory(allDice.every(die => die.value === allDice[0].value));
+    if (victory) {
+      console.log("Victory!")
+    }
+  })
+  
+  // Toggle the isHeld of the Die that is clicked
+  function handleClick(id, isHeld) {
+    setAllDice(allDice.map(die => die.id === id 
+      ? {...die, isHeld: !isHeld} 
+      : die ))
   }
 
+  //ThrowDie for all dice that is not held and update score
+  const reshuffle = () => {
+    if (victory === false) {
+      setScore (score + 1)
+      setAllDice(allDice.map(die => die.isHeld === false
+        ? throwDie()
+        : die ))
+      } else {
+      setScore(0)
+      setAllDice(allDice.map(die => throwDie()))
+    }
+  }
+
+  // Change button text according to Victory
+  const buttonText = victory === true ? "New Game" : "Throw Dice"; 
+
+  //Generate Die component
   const DiceEl = allDice.map((die) => (
     <Die 
         value={die.value} 
         isHeld={die.isHeld}
         key={die.id}
-        onClick={handleClick()}
+        id={die.id}
+        onClick={handleClick}
     />
   ))
-
-  console.log(allDice)
 
   return (
     <div className="App">
       <main>
         <h1>Tenzies!</h1>
         <p>Simple: try to end with all dice showing the same number by holding any you want and relaunching. Try to do this with the least attempts possible. Good luck!</p>
+        <h3>Rolls : {score}</h3>
         <div className="dice--section">
             {DiceEl}
         </div>
-        <button onClick={handleClick}>Click Here</button>
+        <button onClick={reshuffle}>{buttonText}</button>
       </main>
     </div>
   );

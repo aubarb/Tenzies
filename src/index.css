@@ -38,6 +38,15 @@ p {
     border: 1px solid black;
     border-radius: 10px;
     background-color: bisque;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px black;
+}
+
+.die_held {
+    border: 1px solid rgb(0, 0, 0);
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(169, 132, 87);
 }
 
 button {
@@ -48,5 +57,5 @@ button {
     box-shadow: 1px 1px 4px grey;
     width: 25%;
     padding: 1rem;
-
+    cursor: pointer;
 }

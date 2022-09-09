@@ -1,25 +1,23 @@
-Click here should reshuffle all
-Add an "isHeld" property onClick = isHeld. By default false and on click is will toggle on/off
-if isHeld = true, conditionnal formating (different background Color)
-if isHeld === true then cannot reshuffle the number
-
-Need to reshuffle all dice that isHeld === false
-
-
 I have an Array of 10 objects : {value: number, isHeld: false}
 The array is created in Appjs
 The array is iterated over in Dice.js to render 10 <Die /> components with object values as parameters
 Individual die is rendered in Die.js. Only there can Click be registered (???)
 
-onClick: 
-
-const toggle = ({ target }) => {
-    const clickedDie = target.value;
-    console.log(clickedDie);
+5:
+{
+id: "HQrlb--Y2Cr6gOCEXZLZf",
+isHeld: false,
+value: 1
 }
 
-setAllDice(prev => 
-    prev.map(die => die.id === id ? die.isHeld = true : die)
+
+Improvements
+- Put real dots on the dice (CSS)
+- Track the Time it took to win
+- 
+- Better CSS overall
+    - Animation when winning
+    - Better button display
 
 
-event.stopPropagation();
+- Save best Time to local storage : 
