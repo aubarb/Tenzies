@@ -1,6 +1,6 @@
 # Tenzies
 
-Tenzies is a little dice game
+Tenzies is a little dice game : https://tenzies-79b6c.web.app/
 
 ## Description
 
